@@ -1,6 +1,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: {
@@ -31,5 +32,6 @@ module.exports = {
       filename: 'index.html',
       template: 'index.html',
     }),
+    new Dotenv()
   ],
 }
