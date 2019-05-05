@@ -85,5 +85,5 @@ for(i=0;i<finalResults.lengh();i++) {
   }
 }
 
-const precision = truePositives / predictedFires;
-const recall = truePositives / totalFires;
+console.log("precision "+truePositives / predictedFires);
+console.log("recall "+truePositives / totalFires);
