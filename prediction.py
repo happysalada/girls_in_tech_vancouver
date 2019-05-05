@@ -7,25 +7,26 @@ with open('historical_fires.json') as json_file:
   X = []
   Y = []
   fuzz = 0.01
+  fuzz_impact = 2
   for fire in historical_fires:
     fwi = fire['fwi']
     lat = fire['lat']
     lon = fire['lon']
-    X.append([lat+fuzz, lon+fuzz, fwi - 1])
+    X.append([lat+fuzz, lon+fuzz, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat+fuzz, lon-fuzz, fwi - 1])
+    X.append([lat+fuzz, lon-fuzz, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat-fuzz, lon+fuzz, fwi - 1])
+    X.append([lat-fuzz, lon+fuzz, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat-fuzz, lon-fuzz, fwi - 1])
+    X.append([lat-fuzz, lon-fuzz, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat+fuzz, lon, fwi - 1])
+    X.append([lat+fuzz, lon, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat-fuzz, lon, fwi - 1])
+    X.append([lat-fuzz, lon, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat, lon+fuzz, fwi - 1])
+    X.append([lat, lon+fuzz, fwi - fuzz_impact])
     Y.append(0)
-    X.append([lat, lon-fuzz, fwi - 1])
+    X.append([lat, lon-fuzz, fwi - fuzz_impact])
     Y.append(0)
     X.append([lat, lon, fwi])
     Y.append(1)
