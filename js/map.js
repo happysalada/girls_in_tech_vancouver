@@ -1,6 +1,5 @@
 const loadGoogleMapsApi = require('load-google-maps-api');
 const historical = require('../historical_fires.json');
-const fireRisk = require('../fire_in_danger_scribe.json');
 
 const utcDate = (str) => (new Date(str.replace(' ', 'T') + 'Z'))
 class Map {
