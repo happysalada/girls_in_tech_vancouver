@@ -14,12 +14,12 @@ class Map {
     });
     historical
       .map(({ lat, lon }) => {
-      const latLng = new google.maps.LatLng(lat, lon);
-      new google.maps.Marker({
-        position: latLng,
-        map: map
-      });
-    })
+        const latLng = new google.maps.LatLng(lat, lon);
+        new google.maps.Marker({
+          position: latLng,
+          map: map
+        });
+      })
   }
 }
 
