@@ -41,5 +41,3 @@ with open('historical_fires.json') as json_file:
   print("{0:.1%}".format(clf.predict_proba([[47.859, -68.711, 0]])[0][1]))
   print("Hanover Manitoba Canada")
   print("{0:.1%}".format(clf.predict_proba([[49.5779, -96.7569, 8.6]])[0][1]))
-# clf.predict_proba(X[:2, :])
-# clf.score(X, y)
