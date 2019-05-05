@@ -1,4 +1,5 @@
 const loadGoogleMapsApi = require('load-google-maps-api');
+const historical = require('../historical_fires.json');
 
 class Map {
 
@@ -7,10 +8,18 @@ class Map {
   }
 
   static createMap(googleMaps, mapElement) {
-    return new googleMaps.Map(mapElement, {
-      center: { lat: 45.520562, lng: -122.677438 },
-      zoom: 14
+    const map = new googleMaps.Map(mapElement, {
+      center: { lat: 53.7267, lng: -119.6476 },
+      zoom: 7
     });
+    historical
+      .map(({ lat, lon }) => {
+      const latLng = new google.maps.LatLng(lat, lon);
+      new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+    })
   }
 }
 
