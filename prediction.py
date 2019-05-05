@@ -7,7 +7,7 @@ with open('historical_fires.json') as json_file:
   X = []
   Y = []
   fuzz = 0.01
-  fuzz_impact = 2
+  fuzz_impact = 5
   for fire in historical_fires:
     fwi = fire['fwi']
     lat = fire['lat']
