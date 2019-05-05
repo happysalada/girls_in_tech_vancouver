@@ -1,10 +1,17 @@
 import { Map } from './map';
 
-document.addEventListener("DOMContentLoaded", function() {
+const getUrlParameter = (name) => {
+  const results = new RegExp('[\\?&]' + name + '=([^&#?]*)').exec(window.location.href);
+  if (results == null) { return null; }
+  else { return results[1] || 0; }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
   let mapElement = document.getElementById('map');
 
-  Map.loadGoogleMapsApi().then(function(googleMaps) {
-    Map.createMap(googleMaps, mapElement);
-  });
+  const day = getUrlParameter("day");
+  const month = getUrlParameter("month");
+  Map.loadGoogleMapsApi()
+    .then((googleMaps) => Map.createMap(googleMaps, mapElement, { day, month }));
 
 });
