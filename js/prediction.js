@@ -76,7 +76,7 @@ let truePositives = 0;
 let totalFires = 0;
 let predictedFires = 0;
 
-for(i=0;i<finalResults.lengh();i++) {
+for(i=0;i<finalResults.length;i++) {
   if(finalResults[i] == 1) {
     predictedFires +=1;
   }

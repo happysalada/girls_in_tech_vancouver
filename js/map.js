@@ -28,6 +28,8 @@ class Map {
       return 'red'
     }
 
+    let safeAreaFires = 0;
+    let totalFires = 0;
     historical
       .filter(({rep_date}) => {
         const repdate = utcDate(rep_date)
@@ -36,6 +38,10 @@ class Map {
         return filterMonth && month == filterMonth && day == filterDay
       })
       .map(({ lat, lon, estarea, fwi}) => {
+        totalFires += 1;
+        if(fwi<10) {
+          safeAreaFires += 1;
+        }
         new google.maps.Marker({
           position: new googleMaps.LatLng(lat ,lon),
           map: map,
@@ -49,6 +55,8 @@ class Map {
           }
         });
       })
+
+    console.log("safe area fire percentage " + safeAreaFires / totalFires);
 
   }
 }
