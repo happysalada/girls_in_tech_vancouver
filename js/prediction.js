@@ -9,8 +9,9 @@ const trainingDataX = []
 const trainingDataY = []
 const testDataX = []
 const testDataY = []
+const sampleSize = 1000;
 // just use the first 5000 datapoints for the training set
-for(i=0;i<5000;i++) {
+for(i=0;i<sampleSize;i++) {
   if(historicalFires[i]) {
     const {lat, lon, fwi} = historicalFires[i];
     trainingDataX.push([lat+fuzz, lon+fuzz, fwi])
@@ -34,7 +35,7 @@ for(i=0;i<5000;i++) {
   }
 }
 
-for(i=5000;i<historicalFires.length;i++) {
+for(i=sampleSize;i<sampleSize*1.2;i++) {
   if(historicalFires[i]) {
     const {lat, lon, fwi} = historicalFires[i];
     testDataX.push([lat+fuzz, lon+fuzz, fwi])
@@ -60,8 +61,10 @@ for(i=5000;i<historicalFires.length;i++) {
 const X = new Matrix(trainingDataX)
 const Y = Matrix.columnVector(trainingDataY)
 
+console.log("rows "+X.rows);
+console.log("columns "+X.columns);
 const logreg = new LogisticRegression(numSteps = 1000, learningRate = 5e-3);
-console.log("traning");
+console.log("training");
 logreg.train(X,Y);
 
 const Xtest = new Matrix(testDataX)
